@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mirta:
+      build: .
+      ports:
+        - "3000:3000"
+      expose:
+        - "3000"
+      networks:
+        - webproxy
+networks:
+  webproxy:
+    driver: bridge

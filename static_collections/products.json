@@ -1,0 +1,798 @@
+[
+    {
+        "sku": "BMZZN-7122",
+        "price": 75.96
+    },
+    {
+        "sku": "OVVUK-8951",
+        "price": 36.86
+    },
+    {
+        "sku": "OWHEM-6595",
+        "price": 85.69
+    },
+    {
+        "sku": "HWYZJ-0056",
+        "price": 14.83
+    },
+    {
+        "sku": "LONWN-1133",
+        "price": 56.29
+    },
+    {
+        "sku": "FTGBE-9666",
+        "price": 91.69
+    },
+    {
+        "sku": "MOWIB-2747",
+        "price": 46.14
+    },
+    {
+        "sku": "LNIAL-8393",
+        "price": 73.37
+    },
+    {
+        "sku": "VIBDY-3255",
+        "price": 66.79
+    },
+    {
+        "sku": "AZERC-1989",
+        "price": 28.36
+    },
+    {
+        "sku": "FAWCD-2035",
+        "price": 86.46
+    },
+    {
+        "sku": "FENPA-1098",
+        "price": 36.7
+    },
+    {
+        "sku": "XDDGK-3848",
+        "price": 95.39
+    },
+    {
+        "sku": "RIMYD-0243",
+        "price": 16.44
+    },
+    {
+        "sku": "TCBDH-7868",
+        "price": 32.29
+    },
+    {
+        "sku": "OMIUR-6024",
+        "price": 37.81
+    },
+    {
+        "sku": "BFMVX-7942",
+        "price": 78.23
+    },
+    {
+        "sku": "VYVLA-7385",
+        "price": 24.42
+    },
+    {
+        "sku": "QPPXK-1375",
+        "price": 47.27
+    },
+    {
+        "sku": "AQKQX-3571",
+        "price": 79.9
+    },
+    {
+        "sku": "IXKHN-7760",
+        "price": 83.5
+    },
+    {
+        "sku": "JWRLT-0955",
+        "price": 7.23
+    },
+    {
+        "sku": "XDNGQ-7252",
+        "price": 36.86
+    },
+    {
+        "sku": "HWKAM-9680",
+        "price": 50.19
+    },
+    {
+        "sku": "BZTKZ-2865",
+        "price": 34.67
+    },
+    {
+        "sku": "QXHKU-6156",
+        "price": 10.38
+    },
+    {
+        "sku": "HUAON-6699",
+        "price": 47.54
+    },
+    {
+        "sku": "UZEKP-5074",
+        "price": 85.36
+    },
+    {
+        "sku": "SGXAO-8503",
+        "price": 44.42
+    },
+    {
+        "sku": "PHBLM-9805",
+        "price": 51.0
+    },
+    {
+        "sku": "EAZKL-0112",
+        "price": 58.35
+    },
+    {
+        "sku": "JSVVX-8355",
+        "price": 47.98
+    },
+    {
+        "sku": "JAINI-1633",
+        "price": 28.04
+    },
+    {
+        "sku": "EGDFX-0564",
+        "price": 35.52
+    },
+    {
+        "sku": "ENRJN-5336",
+        "price": 76.04
+    },
+    {
+        "sku": "FUTXK-5257",
+        "price": 91.16
+    },
+    {
+        "sku": "OSSDM-1297",
+        "price": 75.64
+    },
+    {
+        "sku": "TSUJN-2669",
+        "price": 44.71
+    },
+    {
+        "sku": "WVBMY-4947",
+        "price": 48.76
+    },
+    {
+        "sku": "CODRL-5295",
+        "price": 93.68
+    },
+    {
+        "sku": "WOEHU-5445",
+        "price": 45.41
+    },
+    {
+        "sku": "FJQZP-1107",
+        "price": 16.11
+    },
+    {
+        "sku": "SALDQ-0193",
+        "price": 27.98
+    },
+    {
+        "sku": "KQFZL-2126",
+        "price": 52.81
+    },
+    {
+        "sku": "PDVOW-1373",
+        "price": 76.05
+    },
+    {
+        "sku": "AOPVM-8399",
+        "price": 68.78
+    },
+    {
+        "sku": "ICDDU-2690",
+        "price": 59.82
+    },
+    {
+        "sku": "AQUTZ-3919",
+        "price": 38.51
+    },
+    {
+        "sku": "ILMQG-5958",
+        "price": 90.06
+    },
+    {
+        "sku": "CDUYH-0829",
+        "price": 68.87
+    },
+    {
+        "sku": "DRYTK-3319",
+        "price": 70.15
+    },
+    {
+        "sku": "AMFKI-1865",
+        "price": 87.46
+    },
+    {
+        "sku": "CFTFW-5043",
+        "price": 98.14
+    },
+    {
+        "sku": "OVUDO-1650",
+        "price": 93.94
+    },
+    {
+        "sku": "XSLRA-7055",
+        "price": 44.95
+    },
+    {
+        "sku": "ZJSIO-3418",
+        "price": 13.19
+    },
+    {
+        "sku": "QMFWE-5971",
+        "price": 25.69
+    },
+    {
+        "sku": "OGPPA-5327",
+        "price": 9.81
+    },
+    {
+        "sku": "MQUTQ-4163",
+        "price": 91.12
+    },
+    {
+        "sku": "EIRPZ-6410",
+        "price": 21.99
+    },
+    {
+        "sku": "FFXJW-4372",
+        "price": 66.45
+    },
+    {
+        "sku": "CUYFL-5528",
+        "price": 50.32
+    },
+    {
+        "sku": "HBJVC-1438",
+        "price": 96.8
+    },
+    {
+        "sku": "RQBYP-8086",
+        "price": 74.41
+    },
+    {
+        "sku": "FUELA-7920",
+        "price": 4.38
+    },
+    {
+        "sku": "GMQRZ-3807",
+        "price": 25.4
+    },
+    {
+        "sku": "BWHDK-5914",
+        "price": 18.78
+    },
+    {
+        "sku": "IDLHN-1976",
+        "price": 33.32
+    },
+    {
+        "sku": "YDIDO-8172",
+        "price": 14.43
+    },
+    {
+        "sku": "WLYYL-7486",
+        "price": 48.72
+    },
+    {
+        "sku": "HHGBH-5947",
+        "price": 46.73
+    },
+    {
+        "sku": "LWCIV-8814",
+        "price": 16.52
+    },
+    {
+        "sku": "FVFFR-0795",
+        "price": 25.63
+    },
+    {
+        "sku": "RCTKT-5929",
+        "price": 23.74
+    },
+    {
+        "sku": "ZOJGP-1774",
+        "price": 86.92
+    },
+    {
+        "sku": "NAOYX-4194",
+        "price": 59.32
+    },
+    {
+        "sku": "QQPUC-2053",
+        "price": 34.96
+    },
+    {
+        "sku": "PPZSF-0197",
+        "price": 26.27
+    },
+    {
+        "sku": "KSXYF-7164",
+        "price": 46.49
+    },
+    {
+        "sku": "JYLSV-8075",
+        "price": 36.62
+    },
+    {
+        "sku": "AWYTU-5614",
+        "price": 80.07
+    },
+    {
+        "sku": "OOWYR-6889",
+        "price": 16.8
+    },
+    {
+        "sku": "GPQUC-9664",
+        "price": 27.69
+    },
+    {
+        "sku": "BTKWC-3946",
+        "price": 91.01
+    },
+    {
+        "sku": "SJDLY-1926",
+        "price": 36.09
+    },
+    {
+        "sku": "TAQGF-9591",
+        "price": 86.59
+    },
+    {
+        "sku": "YLSVK-7650",
+        "price": 20.9
+    },
+    {
+        "sku": "KGWUC-2949",
+        "price": 27.27
+    },
+    {
+        "sku": "NNAKE-6314",
+        "price": 34.43
+    },
+    {
+        "sku": "TYNYG-2189",
+        "price": 39.64
+    },
+    {
+        "sku": "FJHIM-5356",
+        "price": 44.24
+    },
+    {
+        "sku": "EEAAL-1393",
+        "price": 1.22
+    },
+    {
+        "sku": "PXHJO-6148",
+        "price": 80.81
+    },
+    {
+        "sku": "RBWGS-7684",
+        "price": 73.78
+    },
+    {
+        "sku": "BOEGK-3613",
+        "price": 72.39
+    },
+    {
+        "sku": "SCNTZ-4503",
+        "price": 7.51
+    },
+    {
+        "sku": "SBSKV-5297",
+        "price": 14.8
+    },
+    {
+        "sku": "HFPKW-4316",
+        "price": 93.78
+    },
+    {
+        "sku": "ZSXGB-4911",
+        "price": 36.11
+    },
+    {
+        "sku": "WKSTT-6568",
+        "price": 29.54
+    },
+    {
+        "sku": "HYGZK-9400",
+        "price": 6.57
+    },
+    {
+        "sku": "NPVXR-4104",
+        "price": 26.83
+    },
+    {
+        "sku": "GWNAX-1803",
+        "price": 76.33
+    },
+    {
+        "sku": "DVFFH-8953",
+        "price": 78.93
+    },
+    {
+        "sku": "HNXWR-8084",
+        "price": 64.5
+    },
+    {
+        "sku": "WEVOP-1232",
+        "price": 82.98
+    },
+    {
+        "sku": "WTFES-6288",
+        "price": 80.2
+    },
+    {
+        "sku": "PCKOO-1142",
+        "price": 42.2
+    },
+    {
+        "sku": "NRKGX-9683",
+        "price": 16.03
+    },
+    {
+        "sku": "EAOAK-9708",
+        "price": 26.93
+    },
+    {
+        "sku": "FFPSU-2039",
+        "price": 89.75
+    },
+    {
+        "sku": "KOIQN-0994",
+        "price": 34.6
+    },
+    {
+        "sku": "ILMHG-6898",
+        "price": 33.65
+    },
+    {
+        "sku": "RWJJB-1651",
+        "price": 88.14
+    },
+    {
+        "sku": "MEDCC-8711",
+        "price": 89.09
+    },
+    {
+        "sku": "EAMHW-9972",
+        "price": 48.62
+    },
+    {
+        "sku": "RLNWR-8835",
+        "price": 11.05
+    },
+    {
+        "sku": "KCINX-5649",
+        "price": 13.69
+    },
+    {
+        "sku": "ACAJW-8520",
+        "price": 25.45
+    },
+    {
+        "sku": "YJNFI-7771",
+        "price": 36.41
+    },
+    {
+        "sku": "AASLO-4267",
+        "price": 50.33
+    },
+    {
+        "sku": "QONGF-4106",
+        "price": 59.13
+    },
+    {
+        "sku": "MNMWU-4707",
+        "price": 92.36
+    },
+    {
+        "sku": "QRXHT-8723",
+        "price": 77.67
+    },
+    {
+        "sku": "RAXWJ-5713",
+        "price": 76.89
+    },
+    {
+        "sku": "GZVGD-0877",
+        "price": 73.88
+    },
+    {
+        "sku": "XWBAZ-1720",
+        "price": 16.95
+    },
+    {
+        "sku": "SZDVF-8437",
+        "price": 21.91
+    },
+    {
+        "sku": "FTFCC-0918",
+        "price": 85.47
+    },
+    {
+        "sku": "XGYNI-2799",
+        "price": 26.57
+    },
+    {
+        "sku": "CPBHR-1863",
+        "price": 36.44
+    },
+    {
+        "sku": "JXSRT-3861",
+        "price": 34.42
+    },
+    {
+        "sku": "HCDGZ-7532",
+        "price": 53.39
+    },
+    {
+        "sku": "WJAPD-2735",
+        "price": 37.36
+    },
+    {
+        "sku": "RVDVN-3344",
+        "price": 66.12
+    },
+    {
+        "sku": "RZGJA-7646",
+        "price": 9.62
+    },
+    {
+        "sku": "ASCYB-0084",
+        "price": 81.61
+    },
+    {
+        "sku": "RNHZB-1023",
+        "price": 53.19
+    },
+    {
+        "sku": "NYCER-7804",
+        "price": 16.88
+    },
+    {
+        "sku": "UGSXO-1999",
+        "price": 66.73
+    },
+    {
+        "sku": "GJYLP-2203",
+        "price": 96.34
+    },
+    {
+        "sku": "XTZCF-0304",
+        "price": 17.19
+    },
+    {
+        "sku": "YSUZE-0383",
+        "price": 67.37
+    },
+    {
+        "sku": "XCIHE-5708",
+        "price": 82.38
+    },
+    {
+        "sku": "WOYDY-2811",
+        "price": 16.03
+    },
+    {
+        "sku": "SPTQA-4720",
+        "price": 88.04
+    },
+    {
+        "sku": "OTIZH-8875",
+        "price": 62.29
+    },
+    {
+        "sku": "FZUPW-6066",
+        "price": 27.43
+    },
+    {
+        "sku": "CZCLG-0177",
+        "price": 31.17
+    },
+    {
+        "sku": "BOMPC-1605",
+        "price": 90.11
+    },
+    {
+        "sku": "PECEG-5361",
+        "price": 21.77
+    },
+    {
+        "sku": "YRUKF-1652",
+        "price": 83.4
+    },
+    {
+        "sku": "QPTLL-4784",
+        "price": 32.13
+    },
+    {
+        "sku": "VFDJP-8015",
+        "price": 73.95
+    },
+    {
+        "sku": "MLDOB-6193",
+        "price": 97.88
+    },
+    {
+        "sku": "ISXBO-7277",
+        "price": 19.08
+    },
+    {
+        "sku": "LRMCC-5225",
+        "price": 11.57
+    },
+    {
+        "sku": "UXCDX-3321",
+        "price": 26.13
+    },
+    {
+        "sku": "AYALN-4765",
+        "price": 90.01
+    },
+    {
+        "sku": "NXWGL-0941",
+        "price": 4.15
+    },
+    {
+        "sku": "QQNHF-7040",
+        "price": 93.55
+    },
+    {
+        "sku": "JJXXS-9679",
+        "price": 23.38
+    },
+    {
+        "sku": "WBBOR-7858",
+        "price": 36.66
+    },
+    {
+        "sku": "CQUNT-5451",
+        "price": 11.1
+    },
+    {
+        "sku": "SSWAF-8404",
+        "price": 47.81
+    },
+    {
+        "sku": "NDOFS-8228",
+        "price": 38.57
+    },
+    {
+        "sku": "JHDNU-0594",
+        "price": 0.12
+    },
+    {
+        "sku": "SEIQX-9319",
+        "price": 57.98
+    },
+    {
+        "sku": "DKEMV-5182",
+        "price": 82.55
+    },
+    {
+        "sku": "OFNCW-6164",
+        "price": 45.31
+    },
+    {
+        "sku": "VRVDL-0676",
+        "price": 42.24
+    },
+    {
+        "sku": "CDILM-7788",
+        "price": 99.64
+    },
+    {
+        "sku": "YNMIM-0688",
+        "price": 83.02
+    },
+    {
+        "sku": "YVVLA-1269",
+        "price": 86.51
+    },
+    {
+        "sku": "MJIDL-7099",
+        "price": 84.93
+    },
+    {
+        "sku": "LUADF-8913",
+        "price": 75.81
+    },
+    {
+        "sku": "GGPIS-5651",
+        "price": 10.63
+    },
+    {
+        "sku": "QHHGY-9782",
+        "price": 22.09
+    },
+    {
+        "sku": "QJFYH-3934",
+        "price": 98.98
+    },
+    {
+        "sku": "BZKTW-1296",
+        "price": 86.65
+    },
+    {
+        "sku": "YXEPQ-2797",
+        "price": 64.57
+    },
+    {
+        "sku": "PWYEG-5156",
+        "price": 93.46
+    },
+    {
+        "sku": "PSXUK-2262",
+        "price": 76.98
+    },
+    {
+        "sku": "CNRNX-6518",
+        "price": 2.72
+    },
+    {
+        "sku": "KYIEA-8295",
+        "price": 5.91
+    },
+    {
+        "sku": "FARHY-4211",
+        "price": 19.32
+    },
+    {
+        "sku": "XUVAA-7173",
+        "price": 79.01
+    },
+    {
+        "sku": "CARXF-7539",
+        "price": 5.01
+    },
+    {
+        "sku": "DWHQS-2681",
+        "price": 5.13
+    },
+    {
+        "sku": "JQTYK-7063",
+        "price": 47.93
+    },
+    {
+        "sku": "MUKSN-1032",
+        "price": 11.34
+    },
+    {
+        "sku": "VVRGS-7322",
+        "price": 25.93
+    },
+    {
+        "sku": "NHPXH-7056",
+        "price": 49.89
+    },
+    {
+        "sku": "IFCLX-6521",
+        "price": 31.82
+    },
+    {
+        "sku": "OERCJ-2630",
+        "price": 86.18
+    },
+    {
+        "sku": "BKGBK-8539",
+        "price": 56.95
+    },
+    {
+        "sku": "LNJKU-4205",
+        "price": 16.33
+    },
+    {
+        "sku": "ZBRED-1397",
+        "price": 39.13
+    },
+    {
+        "sku": "TRRCB-7931",
+        "price": 20.83
+    }
+]
