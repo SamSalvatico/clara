@@ -1,8 +1,3 @@
-## 1.0.1
-
-### Added
-- Redis explanation
-
 ## 1.0
 
 ### Added

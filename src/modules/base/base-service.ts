@@ -1,13 +1,16 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-unused-vars */
 import { ObjectId } from 'mongodb';
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import dotenv from 'dotenv';
 
-import BaseModel from './base-model';
 import ModelInterface, { ModelInterfaceConstructor } from './model-interface';
 import SchemaInterface from './schema-interface';
 import ServiceInterface from './service-interface';
 
 export default class BaseService implements ServiceInterface {
+  private static _instance: BaseService;
+
   protected modelType: ModelInterfaceConstructor;
 
   protected fastifyInstance: FastifyInstance;
@@ -19,11 +22,23 @@ export default class BaseService implements ServiceInterface {
   constructor(
     modelType: ModelInterfaceConstructor,
     fastifyInstance: FastifyInstance,
-    schema: SchemaInterface) {
+    schema: SchemaInterface,
+  ) {
     dotenv.config();
     this.modelType = modelType;
     this.fastifyInstance = fastifyInstance;
     this.schema = schema;
+  }
+
+  public static Instance(
+    modelType: ModelInterfaceConstructor,
+    fastifyInstance: FastifyInstance,
+    schema: SchemaInterface,
+  ) {
+    if (!this._instance) {
+      this._instance = new this(modelType, fastifyInstance, schema);
+    }
+    return this._instance;
   }
 
   get collectionName(): string {
@@ -34,39 +49,47 @@ export default class BaseService implements ServiceInterface {
     return `/${this._collection}`;
   }
 
-  public async create(body: any, reply: FastifyReply | null = null): Promise<ModelInterface> {
+  public async create(body: any, _reply: FastifyReply | null = null): Promise<ModelInterface> {
     try {
       delete body._id;
-      const resp = await this.fastifyInstance.mongo.db?.collection(this.collectionName).insertOne(body);
+      const resp = await this.fastifyInstance.mongo.db?.collection(
+        this.collectionName
+      ).insertOne(body);
       if (resp == null || resp === undefined || resp.ops.length < 1) {
         // throw new Error("Insert didn't work");
         throw new Error("C'è stato un problema durante la creazione dell'elemento.");
       } else {
+        // eslint-disable-next-line new-cap
         return Object.assign<ModelInterface, any>(new this.modelType(), resp.ops[0]);
       }
     } catch (e) {
-      console.error(e);
+      this.fastifyInstance.log.error(e);
       throw new Error(e);
     }
   }
 
-  public async show(id: string, reply: FastifyReply | null = null): Promise<ModelInterface | null> {
+  public async show(
+    id: string,
+    _reply: FastifyReply | null = null
+  ): Promise<ModelInterface | null> {
     try {
       const checkForHexRegExp = new RegExp('^[0-9a-fA-F]{24}$');
       if (checkForHexRegExp.test(id)) {
         const resp = await this.fastifyInstance.mongo.db?.collection(this.collectionName)
           .findOne({ _id: new ObjectId(id) });
         return resp;
-      } else {
-        return null;
       }
+      return null;
     } catch (e) {
-      console.error(e);
+      this.fastifyInstance.log.error(e);
       throw new Error(e);
     }
   }
 
-  public async delete(id: string, reply: FastifyReply | null = null): Promise<{ _id: string } | null> {
+  public async delete(
+    id: string,
+    _reply: FastifyReply | null = null
+  ): Promise<{ _id: string } | null> {
     try {
       const resp = await this.fastifyInstance.mongo.db?.collection(this.collectionName)
         .deleteOne({ _id: new ObjectId(id) });
@@ -81,25 +104,31 @@ export default class BaseService implements ServiceInterface {
       }
       return { _id: id };
     } catch (e) {
-      console.error(e);
+      this.fastifyInstance.log.error(e);
       throw new Error(e);
     }
   }
 
-  public async index(request: FastifyRequest, reply: FastifyReply | null = null): Promise<ModelInterface[]> {
+  public async index(
+    _request: FastifyRequest,
+    _reply: FastifyReply | null = null
+  ): Promise<ModelInterface[]> {
     try {
       const response = await this.fastifyInstance.mongo.db?.collection(this.collectionName)
         .find({});
       const output = response?.toArray();
-      // console.log(output);
-      return output == undefined ? [] : output;
+      return output == null ? [] : output;
     } catch (e) {
-      console.error(e);
+      this.fastifyInstance.log.error(e);
       throw new Error(e);
     }
   }
 
-  public async update(id: string, body: any, reply: FastifyReply | null = null): Promise<ModelInterface | null> {
+  public async update(
+    id: string,
+    body: any,
+    _reply: FastifyReply | null = null
+  ): Promise<ModelInterface | null> {
     try {
       delete body._id;
       const resp = await this.fastifyInstance.mongo.db?.collection(this.collectionName)
@@ -109,7 +138,7 @@ export default class BaseService implements ServiceInterface {
       }
       return null;
     } catch (e) {
-      console.error(e);
+      this.fastifyInstance.log.error(e);
       throw new Error(e);
     }
   }

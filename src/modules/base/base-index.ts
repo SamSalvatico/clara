@@ -3,6 +3,8 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import BaseModel from './base-model';
+import BaseSchema from './base-schema';
 import BaseService from './base-service';
 import IndexInterface from './index-interface';
 import SchemaInterface from './schema-interface';
@@ -10,28 +12,41 @@ import ServiceInterface from './service-interface';
 // import BaseSchema from './base-schema';
 
 export default class BaseIndex implements IndexInterface {
-  protected prefix: string;
+  private static _instance: BaseIndex;
 
-  protected fastifyInstance: FastifyInstance;
+  protected prefixValue!: string;
 
-  protected service: ServiceInterface;
+  protected fastifyInstance!: FastifyInstance;
 
-  protected schema: SchemaInterface;
+  protected service!: ServiceInterface;
 
-  constructor(
-    fastifyInstance: FastifyInstance,
-    serviceToUse: BaseService,
-    schema: SchemaInterface,
-    routesPrefix: string | null = null,
-  ) {
-    this.fastifyInstance = fastifyInstance;
-    this.service = serviceToUse;
-    this.schema = schema;
-    this.prefix = routesPrefix == null ? this.service.pathPrefix : routesPrefix;
-    this.prefix = this.prefix?.startsWith('/') ? this.prefix : `/${this.prefix}`;
+  protected schema!: SchemaInterface;
+
+  constructor(fastifyInstance: FastifyInstance) {
+    this.initialize(fastifyInstance);
+    this.register();
   }
 
-  public register(): void {
+  public static Instance(fastifyInstance: FastifyInstance) {
+    if (!this._instance) {
+      this._instance = new this(fastifyInstance);
+    }
+    return this._instance;
+  }
+
+  protected initialize(fastifyInstance: FastifyInstance) {
+    this.fastifyInstance = fastifyInstance;
+    this.schema = new BaseSchema();
+    this.service = BaseService.Instance(BaseModel, fastifyInstance, this.schema);
+    this.prefixValue = this.service.pathPrefix;
+  }
+
+  get prefix(): string {
+    return this.prefixValue?.startsWith('/')
+      ? this.prefixValue : `/${this.prefixValue}`;
+  }
+
+  protected register(): void {
     this.registerCrudRoutes();
   }
 
@@ -65,13 +80,11 @@ export default class BaseIndex implements IndexInterface {
 
   public async create(request: FastifyRequest, reply: FastifyReply) {
     const resp = await this.service.create(request.body, reply);
-    // console.log(resp);
     return reply.code(201).send(resp);
   }
 
   public async index(request: FastifyRequest, reply: FastifyReply) {
     const resp = await this.service.index(request, reply);
-    // console.log(resp);
     return reply.send(resp);
   }
 

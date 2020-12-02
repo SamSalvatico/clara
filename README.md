@@ -1,4 +1,4 @@
-# william-mirta
+# clara
 
 ## Index
 
@@ -9,8 +9,7 @@
 - [Endpoints and docs](#endpoints-and-docs)
 - [Tests](#tests)
 - [Optional config](#optional-config)
-- [Example](#example)
-- [Missing](#missing)
+- [Example And Manual Tests](#example-and-manual-tests)
 
 ## Start
 
@@ -23,7 +22,7 @@ To start you need to have on your machine:
 - [docker](https://docker.com), if you want to run it as image (tested with docker v19.03.8);
 - An internet connection!
 
-The database is hosted on [MongoAtlas](https://www.mongodb.com/cloud/atlas), it contains the bundles and the products collections filled with example jsons.
+The test database is hosted on [MongoAtlas](https://www.mongodb.com/cloud/atlas), it contains the bundles and the products collections filled with example jsons.
 
 ## The code
 
@@ -37,6 +36,9 @@ In the _test_ folder you can find the test I wrote.
 
 ## Classic run
 
+Before of all you have to copy the .env.example file into a .env file.
+After that you must uncomment the "# The standalone ones" connection string key and comment the "# The Docker credentials" one.
+
 To start the application using npm you have to run in the root folder
 
 ```
@@ -48,11 +50,12 @@ Et voilà! You're ready to work at port 3000 of your localhost.
 
 ## Docker run
 
+If the "# The Docker credentials" is the active one in the .env.example file or in the .env file you're okay, otherwise you have to uncomment it.
+
 To start the application using docker you have to run in the root folder
 
 ```
-docker build -t "mirta:latest" . && \
-docker run --publish 3000:3000 mirta
+docker-compose build && docker-compose up
 ```
 
 Et voilà! You're ready to work at port 3000 of your localhost.
@@ -78,44 +81,42 @@ npm install
 ```
 npm run test
 ```
+You can find the tests in the *test* folder. 
+In the **cart.test.ts** file you can find the methods
+- processInputOneCartCheckout;
+- processInputTwoCartCheckout;
+- processInputThreeCartCheckout;
+
+That test the code against the input data.
 
 ## Optional config
 
 If you want to run thee project with different configurations you have to copy the _.env.example_ file into a _.env_ file and edit your configurations.
 Remember: to run in docker the host must be the 0.0.0.0.
 
-## Example
+## Example And Manual Tests
 
-This is the workflow you can follow to test the assignment case.
+This is the workflow you can follow to test the code.
+
+If you go to "{{baseUrl}}/documentation" you can find a fully functional swagger-client to test the repo.
+
+Some example data are seed during the start phase of the server.
+
+Create a cart
+
+```
+POST {baseUrl}/carts
+```
+You'll get the id in the response.
+
+Get all the available products
+
+```
+GET {baseUrl}/products
+``` 
 
 To add a product to the cart
 
 ```
-POST {baseUrl}/carts/skus/{theSku}
+POST {baseUrl}/carts/products/{theIdOfTheSelectedProduct}
 ```
-
-E.g.
-
-```
-POST http://localhost:3000/carts/skus/UGSXO-1999
-```
-
-To remove it
-
-```
-DELETE {baseUrl}/carts/skus/{theSku}
-```
-
-To remove all products from the cart
-
-```
-DELETE {baseUrl}/carts/me
-```
-
-## Missing
-
-The following parts are missing:
-
-- an high number of interfaces implementation;
-- script and docker compose to create and seed a mongo instance;
-- persistence checks (remove a product from the cart if deleted from collection, ...)

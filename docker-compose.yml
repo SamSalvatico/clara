@@ -1,6 +1,21 @@
-version: '3'
+version: '2.1'
 services:
-  mirta:
+  mongodb:
+      image: mongo:latest
+      container_name: mongodb
+      hostname: mongodb
+      volumes:
+        - mongodata:/data/db
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: groot
+        MONGO_INITDB_ROOT_PASSWORD: iamgroot
+        MONGO_INITDB_DATABASE: clara
+      ports:
+          - "27017:27017"
+      # command: ["-f", "/etc/mongod.conf"]
+      networks:
+        - webproxy
+  clara:
       build: .
       ports:
         - "3000:3000"
@@ -8,6 +23,10 @@ services:
         - "3000"
       networks:
         - webproxy
+      depends_on: 
+        - mongodb
 networks:
   webproxy:
     driver: bridge
+volumes:
+  mongodata:

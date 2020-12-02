@@ -5,7 +5,8 @@ export default interface ModelInterface {
 
   readonly id: string;
 
-  //constructor(): void;
+  // constructor(): void;
+// eslint-disable-next-line semi
 }
 
 export interface ModelInterfaceConstructor {

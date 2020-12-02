@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 
-import ModelInterface from "./model-interface";
+import ModelInterface from './model-interface';
 
 export default class BaseModel implements ModelInterface {
   public _id!: string;
@@ -8,5 +8,4 @@ export default class BaseModel implements ModelInterface {
   get id(): string {
     return this._id;
   }
-  
 }

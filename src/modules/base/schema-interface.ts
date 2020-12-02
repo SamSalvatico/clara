@@ -1,5 +1,5 @@
 export default interface SchemaInterface {
-  
+
   properties: { [k: string]: any };
 
   errorProperties: { [k: string]: any };
@@ -41,6 +41,9 @@ export default interface SchemaInterface {
     params: { type: string, properties: { [k: string]: any }, required: string[] },
     response: { [k: number]: { type: string, properties: { [k: string]: any } } },
   };
+
+  [x: string]: any;
+  // eslint-disable-next-line semi
 }
 
 export interface SchemaInterfaceConstructor {

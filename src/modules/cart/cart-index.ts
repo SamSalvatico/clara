@@ -1,127 +1,90 @@
-import { FastifyRequest, FastifyReply } from "fastify";
-import BaseIndex from "../base/base-index";
-import IndexInterface from "../base/index-interface";
-import ProductSchema from "../product/product-schema";
+import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
+import BaseIndex from '../base/base-index';
+import IndexInterface from '../base/index-interface';
+import Cart from './cart-model';
+import CartSchema from './cart-schema';
+import CartService from './cart-service';
 
 export default class CartIndex extends BaseIndex implements IndexInterface {
-    public register(): void {
-        this.fastifyInstance.get(
-            `${this.prefix}/me`,
-            { schema: this.meSchema() },
-            async (request: FastifyRequest, reply: FastifyReply) => this.me(request, reply),
-        );
-        this.fastifyInstance.delete(
-            `${this.prefix}/me`,
-            {},
-            async (request: FastifyRequest, reply: FastifyReply) => this.deleteMe(request, reply),
-        );
-        this.registerChildrenCrudRoutes();
-    }
-    protected registerChildrenCrudRoutes() {
-        this.fastifyInstance.post(
-            `${this.prefix}/skus/:sku`,
-            { schema: this.skuSchema() },
-            async (request: FastifyRequest, reply: FastifyReply) => this.addSku(request, reply),
-        );
-        this.fastifyInstance.delete(
-            `${this.prefix}/skus/:sku`,
-            { schema: this.skuSchema() },
-            async (request: FastifyRequest, reply: FastifyReply) => this.removeSku(request, reply),
-        );
-    }
+  protected initialize(fastifyInstance: FastifyInstance) {
+    this.fastifyInstance = fastifyInstance;
+    this.schema = new CartSchema();
+    this.service = CartService.Instance(Cart, fastifyInstance, this.schema);
+    this.prefixValue = 'carts';
+  }
 
-    public async me(request: FastifyRequest, reply: FastifyReply) {
-        const resp = await this.service.getMe();
-        return reply.code(200).send(resp);
-    }
+  protected register(): void {
+    super.register();
+    this.registerChildrenCrudRoutes();
+  }
 
-    public async deleteMe(request: FastifyRequest, reply: FastifyReply) {
-        const resp = await this.service.deleteMe();
-        return reply.code(200).send(resp);
-    }
+  protected registerChildrenCrudRoutes() {
+    this.fastifyInstance.post(
+      `${this.prefix}/:id/products/:product_id`,
+      { schema: this.schema.addProductSchema },
+      async (request: FastifyRequest, reply: FastifyReply) => this.addProduct(request, reply),
+    );
+    this.fastifyInstance.put(
+      `${this.prefix}/:id/products/:product_id`,
+      { schema: this.schema.addProductSchema },
+      async (request: FastifyRequest, reply: FastifyReply) => this.editProduct(request, reply),
+    );
+    this.fastifyInstance.delete(
+      `${this.prefix}/:id/products/:product_id`,
+      { schema: this.schema.removeProductSchema },
+      async (request: FastifyRequest, reply: FastifyReply) => this.removeProduct(request, reply),
+    );
+  }
 
-    public async addSku(request: any, reply: FastifyReply) {
-        const resp = await this.service.addSku(request.params.sku, reply);
-        // console.log(resp);
-        return reply.code(200).send(resp);
-    }
+  protected registerCrudRoutes() {
+    this.fastifyInstance.post(
+      this.prefix,
+      { schema: this.schema.createSchema },
+      async (request: FastifyRequest, reply: FastifyReply) => this.create(request, reply),
+    );
+    this.fastifyInstance.get(
+      this.prefix,
+      { schema: this.schema.getAllSchema },
+      async (request: FastifyRequest, reply: FastifyReply) => this.index(request, reply),
+    );
+    this.fastifyInstance.get(
+      `${this.prefix}/:id`,
+      { schema: this.schema.getOneSchema },
+      async (request: FastifyRequest, reply: FastifyReply) => this.show(request, reply),
+    );
+    this.fastifyInstance.delete(
+      `${this.prefix}/:id`,
+      { schema: this.schema.deleteSchema },
+      async (request: FastifyRequest, reply: FastifyReply) => this.delete(request, reply),
+    );
+  }
 
-    public async removeSku(request: any, reply: FastifyReply) {
-        const resp = await this.service.removeSkuAndGetUpdatedCart(request.params.sku, reply);
-        // console.log(resp);
-        return reply.code(200).send(resp);
-    }
+  public async addProduct(request: any, reply: FastifyReply) {
+    const resp = await this.service.addProduct(
+      request.params.id,
+      request.params.product_id,
+      request.body,
+      reply
+    );
+    return reply.code(200).send(resp);
+  }
 
-    private skuSchema() {
-        return {
-            tags: [this.constructor.name],
-            params:
-            {
-                type: 'object',
-                properties: {
-                    sku: { type: 'string', nullable: false },
-                },
-                required: ['sku']
-            },
-            response: {
-                200: {
-                    type: 'object',
-                    properties: this.schema.properties
-                    ,
-                },
-                404: {
-                    type: 'object',
-                    properties: this.schema.errorProperties,
-                },
-                500: {
-                    type: 'object',
-                    properties: this.schema.errorProperties,
-                },
-            },
-        };
-    }
+  public async removeProduct(request: any, reply: FastifyReply) {
+    const resp = await this.service.removeProduct(
+      request.params.id,
+      request.params.product_id,
+      reply
+    );
+    return reply.code(200).send(resp);
+  }
 
-    private meSchema() {
-        return {
-            tags: [this.constructor.name],
-            response: {
-                200: {
-                    type: 'object',
-                    properties: this.schema.properties
-                    ,
-                },
-                500: {
-                    type: 'object',
-                    properties: this.schema.errorProperties,
-                },
-            },
-        };
-    }
-
-    private insertProductSchema() {
-        const prodSchema = new ProductSchema();
-        return {
-            tags: [this.constructor.name],
-            body: {
-                type: 'object',
-                required: prodSchema.required,
-                properties:
-                    prodSchema.properties,
-            },
-            response: {
-                200: {
-                    type: 'object',
-                    properties: this.schema.properties,
-                },
-                404: {
-                    type: 'object',
-                    properties: this.schema.errorProperties,
-                },
-                500: {
-                    type: 'object',
-                    properties: this.schema.errorProperties,
-                },
-            },
-        };
-    }
+  public async editProduct(request: any, reply: FastifyReply) {
+    const resp = await this.service.addProduct(
+      request.params.id,
+      request.params.product_id,
+      request.body,
+      reply
+    );
+    return reply.code(200).send(resp);
+  }
 }

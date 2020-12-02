@@ -1,8 +1,9 @@
-import { FastifyReply, FastifyRequest } from "fastify";
-import ModelInterface, { ModelInterfaceConstructor } from "./model-interface";
+/* eslint-disable no-unused-vars */
+import { FastifyReply, FastifyRequest } from 'fastify';
+import ModelInterface from './model-interface';
 
 export default interface ServiceInterface {
-    
+
     [x: string]: any;
 
     readonly collectionName: string;
@@ -19,7 +20,9 @@ export default interface ServiceInterface {
 
     update(id: string, body: any, reply: FastifyReply | null): Promise<ModelInterface | null>;
 
+// eslint-disable-next-line semi
 }
+
 export interface ServiceInterfaceConstructor {
     new(): ServiceInterface;
-} 
+}

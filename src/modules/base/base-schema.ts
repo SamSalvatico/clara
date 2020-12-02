@@ -1,4 +1,4 @@
-import SchemaInterface from "./schema-interface";
+import SchemaInterface from './schema-interface';
 
 export default class BaseSchema implements SchemaInterface {
   public properties = {};
@@ -8,18 +8,18 @@ export default class BaseSchema implements SchemaInterface {
   public errorProperties = {
     statusCode: {
       type: 'number',
-      nullable: false
+      nullable: false,
     },
     error:
     {
       type: 'string',
-      nullable: false
+      nullable: false,
     },
     message:
     {
       type: 'string',
-      nullable: false
-    }
+      nullable: false,
+    },
   };
 
   get getOneSchema() {
@@ -31,7 +31,7 @@ export default class BaseSchema implements SchemaInterface {
         properties: {
           id: { type: 'string', nullable: false },
         },
-        required: ['id']
+        required: ['id'],
       },
       response: {
         200: {
@@ -104,7 +104,7 @@ export default class BaseSchema implements SchemaInterface {
         properties: {
           id: { type: 'string', nullable: false },
         },
-        required: ['id']
+        required: ['id'],
       },
       body: {
         type: 'object',
@@ -142,7 +142,7 @@ export default class BaseSchema implements SchemaInterface {
         properties: {
           id: { type: 'string', nullable: false },
         },
-        required: ['id']
+        required: ['id'],
       },
       response: {
         200: {

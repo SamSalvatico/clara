@@ -1,10 +1,14 @@
-import BaseModel from "../base/base-model";
-import ModelInterface from "../base/model-interface";
-import Product from "../product/product-model";
+/* eslint-disable camelcase */
+import BaseModel from '../base/base-model';
+import ModelInterface from '../base/model-interface';
+import ProductAndQuantity from '../product/product-quantity-model';
 
 export default class Cart extends BaseModel implements ModelInterface {
-    public products: Product[] = [];
-    public skus: string[] = [];
-    public price!: number;
-    public discount!: number;
+    public products: ProductAndQuantity[] = [];
+
+    public products_amount!: number | null;
+
+    public taxes_amount!: number | null;
+
+    public total_amount!: number | null;
 }
